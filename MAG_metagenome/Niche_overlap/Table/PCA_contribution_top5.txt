@@ -1,0 +1,6 @@
+     [,1]                                  [,2]                                        [,3]                                                 
+[1,] "Cell.division.protein.FtsN"          "5-aminolevulinate.synthase"                "Co-chaperone.protein.DjlA"                          
+[2,] "DNA-binding.protein.Fis"             "6,7-dimethyl-8-ribityllumazine.synthase.1" "ATP-binding/permease.protein.CydD"                  
+[3,] "DNA.polymerase.III.subunit.delta"    "Aerobic.cobaltochelatase.subunit.CobS"     "30S.ribosomal.protein.S18"                          
+[4,] "Flagellar.biosynthetic.protein.FliQ" "Cell.cycle.response.regulator.CtrA"        "Octopine.permease.ATP-binding.protein.P"            
+[5,] "Homoserine.O-succinyltransferase"    "Chromosome-partitioning.protein.ParB"      "Oligopeptide.transport.system.permease.protein.OppC"
