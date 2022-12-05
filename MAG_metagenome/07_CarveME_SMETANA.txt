@@ -1,0 +1,33 @@
+######################################################
+
+## -- CarveME for shotgun metagenome data
+## -- All bins
+
+######################################################
+
+#cd ~/MTS/
+
+input=Table/ShotgunMetagenome/faalist
+output=carveme_fbc2
+
+######################################################
+
+mkdir Table/ShotgunMetagenome/CarveMe2Smetana
+output2=Table/ShotgunMetagenome/CarveMe2Smetana/$output
+
+## sbml-fbc2 format
+mkdir -p $output2
+for i in `ls $input | grep faa$`
+do 
+	name=`echo ${i} | sed -e "s/faa/xml/g"`
+	carve $input/${i} -o $output2/${name}
+	
+done
+
+######################################################
+
+output3=Table/ShotgunMetagenome/CarveMe2Smetana/smetana
+mkdir -p $output3
+
+smetana $output2/*.xml -c Table/smetanaCommunity.tsv -d -o $output3/result_detail　
+smetana $output2/*.xml -c Table/smetanaCommunity.tsv --flavor bigg -o $output3/mip_mro
