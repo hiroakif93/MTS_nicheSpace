@@ -5,7 +5,7 @@
 #### Metagenome analysis
 #### 2020.11.12 Fujita
 #### R 3.6.0
-#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS/')
+#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_nichespace/')
 #### setwd('../')
 ############################################################################
 
@@ -15,8 +15,8 @@ source('functions/functions.R')
 load.lib(c('seqinr', 'dada2'))
 
 # -- Load data table
-seqtab <- readRDS("Table/seqtab_all_with_inoculum.rds")
-seq.fna <- read.fasta("Table/00_Fasta_16S.fasta")
+seqtab <- readRDS("Table/00_seqtab_rmchimera.rds")
+seq.fna <- read.fasta("Table/01_Fasta_16S.fasta")
 asvlist <- readRDS('Table/Taxa_list.rds')
 
 dlist <- readRDS('Table/matrixList.rds')
@@ -43,3 +43,4 @@ gbtk[is.na(gbtk)] <- 'unidentified'
 sum <- cbind(asvlist[,-ncol(asvlist)], gbtk=gbtk, asvlist[,ncol(asvlist)])
 head(sum[,-ncol(sum)])
 saveRDS(sum[,-ncol(sum)], 'Table/04_Taxa_list.rds')
+

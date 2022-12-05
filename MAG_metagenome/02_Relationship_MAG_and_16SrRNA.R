@@ -5,12 +5,12 @@
 #### Metagenome analysis
 #### 2020.11.12 Fujita
 #### R 3.6.0
-#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_metagenome/')
+#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_nichespace/')
 #### setwd('../')
 ############################################################################
 
 ## -- Loading Function and Library
-source('functions/functions.R')
+library(AnalysisHelper)
 load.lib( c('ggplot2', 'RColorBrewer', 'ggtext', 'tidyr', 'extrafont', 'cowplot'))
 
 ## -- make directory to save results
@@ -27,11 +27,11 @@ mag_ts[,2] <- apply(split[,1:2], 1, paste, collapse='.')
 dlist <- readRDS('Table/matrixList.rds')
 
 sml <- readRDS('Table/sample_info.rds') 
-sml <- sml[which(sml $treat1=="Water/medium A" & sml $replicate.id==5), ]
+sml <- sml[which(sml $treat1=="Water/Medium-A" & sml $replicate.id==5), ]
 sml <- sml[as.numeric(sml$time)%in%c(1,10,20,24,30,40,50,60,70,80,90,100,110), ]
 
-amp_ts <- dlist[["Water/medium A"]]
-amp_ts <- ts[rownames(sml), colSums(ts[rownames(sml), ])>0]
+amp_ts <- dlist[["Water/Medium-A"]]
+amp_ts <- amp_ts[rownames(sml), colSums(amp_ts[rownames(sml), ])>0]
 
 amp_taxa <- as.matrix(readRDS('Table/04_Taxa_list.rds'))
 amp_taxa <- amp_taxa[,grep('gbtk', colnames(amp_taxa))]
@@ -157,11 +157,11 @@ plot(gg); dev.off()
 
 ## -- Sum up ASV abunadnce in Family level abundance
 ampsub <- amp_ts[rownames(sml),]
-ampGenus <- t(Taxa.mat(ampsub, amp_taxa, 'gbtk.Family'))
+ampGenus <- Taxa.mat(ampsub, amp_taxa, 'gbtk.Family')
 
 ## -- Sum up MAG abunadnce in Family level abundance
 rel <- mat
-binF <- t(Taxa.mat(na.omit(rel), mag[, 5:11], 'Family'))
+binF <- Taxa.mat(na.omit(rel), mag[, 5:11], 'Family')
 binF <- binF/rowSums(binF)
 
 ## =========================================== ##
@@ -192,13 +192,14 @@ for(i in 1:13){
 
 total <- aggregate(df[,3:4], by=list(df$Var2), sum, na.rm=TRUE)
 total$Group.1 <- gsub('unidentified', 'Unidentified', total$Group.1)
+df$Var2 <- gsub('unidentified', 'Unidentified', df$Var2)
 
 total$sum <- rowSums(total[,2:3])
 total <- total[order(total$sum, decreasing=TRUE), ]
 total$color <- 'Others'
 total[1:11,'color'] <- as.character(total[1:11, 1])
 
-col <- c(brewer.pal(6, 'Set1'), brewer.pal(5, 'Set2')[-2], 'grey80', 'Grey30')
+col <- c(brewer.pal(6, 'Set1'), brewer.pal(5, 'Set2')[-c(2)], 'grey80', 'grey30')
 names(col) <- c(setdiff(as.character(total[1:11,'color'] ), 'Unidentified'),  'Unidentified', 'Others')
 
 a <- cor.test(na.omit(df)$amplicon, na.omit(df)$bin, method='spearman')

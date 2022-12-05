@@ -5,12 +5,11 @@
 #### Metagenome analysis
 #### 2020.11.12 Fujita
 #### R 3.6.0
-#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_metagenome/')
+#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_nichespace/')
 #### setwd('../')
 ############################################################################
 
 ## -- Loading Function and Library
-source('functions/functions.R')
 library(AnalysisHelper)
 load.lib( c('ggplot2', 'RColorBrewer', 'tidyr', 'vegan', "ggrepel", 'extrafont','bipartite','maxnodf', 'ggtext'))
 
@@ -183,7 +182,7 @@ plot(g4); dev.off()
 
 ## ==================================================== ##
 ## -- Niche overlap score
-if(F){
+#if(F){
 		
 	simlist <- statniche <- c()	
 	for(i in as.character(unique(mag$sample))){ #i=as.character(unique(mag $sample))[5]
@@ -194,9 +193,9 @@ if(F){
 			sub= sub[,colSums(sub)>0]
 			
 		    ## =========================== ## 
-			simlist[[i]] <- as.vector(1-vegdist(sub*100, method='chao', binary=TRUE))
+			simlist[[i]] <- as.vector(1-vegdist(sub, method='jaccard', binary=TRUE))
 
-			sim <- mean(1-vegdist(sub*100, method='chao', binary=TRUE))
+			sim <- mean(1-vegdist(sub, method='jaccard', binary=TRUE))
 			#nodf <- nestednodf(sub)$statistic[3]
 			#h2 <- H2fun(sub, H2_integer = FALSE)[1]
 			#nodfc <- NODFc(sub, quality=2)			
@@ -207,7 +206,7 @@ if(F){
 		    etmp <- proc.time()[3]
 		    cat(sprintf('Day %s done: elapsed time %0.2f sec',i,  etmp - stmp))
 	}
-}
+#}
 
 ## ==================================================== ##
 fl <- list.files(sprintf('%s', dir$rdsdir), full.names=T)
@@ -230,12 +229,11 @@ abrupt <- function(x){
 }
 
 abrupts <- cbind(jaccard=abrupt(jac), 'Community change'=abrupt(bray))
+lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), Similarity=statniche, abrupts, check.names = FALSE)
 
-pairs(cbind(abrupts, statniche))
-
-nichelap <- do.call(rbind, df)
-colnames(nichelap) <- c('Similarity', 'NODF', 'H2', 'NODFc')
-lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), nichelap, abrupts, check.names = FALSE)
+#nichelap <- do.call(rbind, df)
+#colnames(nichelap) <- c('Similarity', 'NODF', 'H2', 'NODFc')
+#lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), nichelap, abrupts, check.names = FALSE)
 
 # nicheOverlap <- c()#lapply(df, data.frame, time=c(1,10,20,24,seq(30,110,10)),richness=rowSums(ts>0), 'Abruptness'=abruptness)
 # for(i in 1:10){
@@ -245,20 +243,19 @@ lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), nichelap, abrupts, c
 
 lap_score_Scale <- lap_score
 lap_score_Scale[,-1] <- apply(lap_score_Scale[,-1], 2, scales::rescale, to=c(0,1))
-lf <- gather(lap_score_Scale, key, value, -c(1,3,4,6))
+lf <- gather(lap_score_Scale, key, value, -c(1,3))
+
 g1 <- ggplot(lf, aes(x=time, y=value))+
         geom_line(aes(color=key, group=key))+
         scale_color_manual(values=c(NODFc='slateblue3', Similarity='firebrick3',
                                     'Community change'='black'))+
         labs(y='Rescaled scores', x='Time', color='Score')+
-        theme_md(family = 'Arial')+
+        theme_text(bsize=6, family = 'Arial')+
         theme(legend.key = element_rect(fill=NA))
 
-lf <- gather(lap_score_Scale, key, value, -c(1,3,4,6,7))
-g2 <- ggplot(lf, aes(y=`Community change`, x=value, color=time))+
+g2 <- ggplot(lap_score, aes(y=`Community change`, x= Similarity, color=time))+
         geom_point()+
-        labs(y='Community change', x='')+
-      facet_wrap(~key, strip.position = "bottom")+
+        labs(y='Community change', x='Jaccard similarity')+
       scale_color_gradientn(colors=brewer.pal(11, 'Spectral'))+
       theme_text(family = 'Arial')+
       theme(legend.key = element_rect(fill=NA),
@@ -268,28 +265,28 @@ ggsave(plot=g1, sprintf('%s/score_ts.pdf', dir$figdir),device = cairo_pdf, w=9, 
 ggsave(plot=g2, sprintf('%s/corerelation_with_abruptness.pdf', dir$figdir),device = cairo_pdf, w=14, h=7, unit='cm')
 
 
-fitting <- function(x){
-    
-    fml <- formula(sprintf("`Community change`~%s", x))
-    
-    glmmres <- c()
-        
-        sub <- lap_score
-        model <- lm(fml, data=sub)	
-        coef <- summary(model)$coefficients
-        tmp <- data.frame(key =i, pval=summary(model)$coefficients[2,4], 
-        				  tval=sprintf('T value=%.2f', summary(model)$coefficients[2,3]),  
-        				  a=coef[1,1], b=coef[2,1], 
-                          fml=sprintf('y = %.2fx + %.2f',coef[2,1], coef[1,1]),
-                          x=max(sub[,x], na.rm=TRUE),  y=max(sub$Abruptness, na.rm=TRUE)+0.05)
-        glmmres <- rbind(glmmres, tmp)
-    
-    glmmres $pval_lab <- sprintf('<i>P</i> = %.2fx10<sup>-2</sup>', glmmres $pval*100)
-	glmmres $pval_lab[glmmres $pval<0.001] <- '<i>P</i> < 1x10<sup>-3</sup>'
-    glmmres[glmmres $pval>0.001, c('a', 'b')] <- NA
-    
-    return(glmmres)
-}
+# fitting <- function(x){
+#     
+#     fml <- formula(sprintf("`Community change`~%s", x))
+#     
+#     glmmres <- c()
+#         
+#         sub <- lap_score
+#         model <- lm(fml, data=sub)	
+#         coef <- summary(model)$coefficients
+#         tmp <- data.frame(key =i, pval=summary(model)$coefficients[2,4], 
+#         				  tval=sprintf('T value=%.2f', summary(model)$coefficients[2,3]),  
+#         				  a=coef[1,1], b=coef[2,1], 
+#                           fml=sprintf('y = %.2fx + %.2f',coef[2,1], coef[1,1]),
+#                           x=max(sub[,x], na.rm=TRUE),  y=max(sub$Abruptness, na.rm=TRUE)+0.05)
+#         glmmres <- rbind(glmmres, tmp)
+#     
+#     glmmres $pval_lab <- sprintf('<i>P</i> = %.2fx10<sup>-2</sup>', glmmres $pval*100)
+# 	glmmres $pval_lab[glmmres $pval<0.001] <- '<i>P</i> < 1x10<sup>-3</sup>'
+#     glmmres[glmmres $pval>0.001, c('a', 'b')] <- NA
+#     
+#     return(glmmres)
+# }
 
 # nicheOverlap <- lapply(df, data.frame, time=c(1,10,20,24,seq(30,110,10)),richness=rowSums(ts>0), abrupts)
 # jac_nodfc <- sapply(nicheOverlap, function(x){ cor(x[-nrow(x),2], x[-nrow(x),'jaccard'], method='spearman') })
@@ -318,30 +315,30 @@ fitting <- function(x){
 #          main=sprintf('th%s',i/10), xlab='nodfC', ylab='abruptness')
 # }
 # dev.off()
-
-lmres <- c()
-for(i in c('Similarity','NODFc')){
-	lmres <- rbind(lmres, fitting(x=i))
-}
-
-
-lf <- gather(as.data.frame(lap_score), key, Scores, c(2,5))
-g <- ggplot(lf)+
-	 geom_point(size=1.2, aes(x= Scores, y= `Community change`, color=time))+
-	 geom_abline(data= lmres, aes(intercept=a, slope=b), color='royalblue', linetype=2)+
-     geom_text(data= lmres,  aes(x=x, y=0,label= pval), size=2, hjust=1, fill = NA, label.color = NA)+
-	 facet_wrap(~key, scales='free',ncol=2,dir='v',
-	 		strip.position='bottom')+
-     scale_color_gradientn(colors=brewer.pal(11,'Spectral'))+
-	 theme_bw(base_size=8)+
-	 theme(text=element_text(family='Arial'),
-	 		strip.background=element_blank(),
-	 		strip.placement='outside')+
-	 labs(x='', y='Observed community change ')		
-
-svglite::svglite(filename = sprintf('%s/niche_overlap_indices.svgz', dir$figdir), width=8/2.5, height=7/2.5)
-plot(g); dev.off()
-ggsave(plot=g, filename=sprintf('%s/niche_overlap_indices.pdf', dir$figdir),device = cairo_pdf, height=8, width=14, unit='cm')
+# 
+# lmres <- c()
+# for(i in c('Similarity','NODFc')){
+# 	lmres <- rbind(lmres, fitting(x=i))
+# }
+# 
+# 
+# lf <- gather(as.data.frame(lap_score), key, Scores, c(2,5))
+# g <- ggplot(lf)+
+# 	 geom_point(size=1.2, aes(x= Scores, y= `Community change`, color=time))+
+# 	 geom_abline(data= lmres, aes(intercept=a, slope=b), color='royalblue', linetype=2)+
+#      geom_text(data= lmres,  aes(x=x, y=0,label= pval), size=2, hjust=1, fill = NA, label.color = NA)+
+# 	 facet_wrap(~key, scales='free',ncol=2,dir='v',
+# 	 		strip.position='bottom')+
+#      scale_color_gradientn(colors=brewer.pal(11,'Spectral'))+
+# 	 theme_bw(base_size=8)+
+# 	 theme(text=element_text(family='Arial'),
+# 	 		strip.background=element_blank(),
+# 	 		strip.placement='outside')+
+# 	 labs(x='', y='Observed community change ')		
+# 
+# svglite::svglite(filename = sprintf('%s/niche_overlap_indices.svgz', dir$figdir), width=8/2.5, height=7/2.5)
+# plot(g); dev.off()
+# ggsave(plot=g, filename=sprintf('%s/niche_overlap_indices.pdf', dir$figdir),device = cairo_pdf, height=8, width=14, unit='cm')
 
 ## ==================================================== ##
 genemat=bi
@@ -378,28 +375,8 @@ ggpcasim <- ggplot(pca2)+
                legend.justification = c(1,2),
                plot.margin= unit(c(1, 1, 9, 1), "lines"))+
          labs(x='Axis 1',y='Axis 2',fill="Niche overlap score (Similarity)")+
-    coord_fixed()
-ggpcanodfc <- ggplot(pca2)+
-        geom_path(aes(x=X1, y= X2), show.legend=FALSE,size=0.4,
-                  arrow = arrow(type='closed',length = unit(0.015, "npc")), linetype=3)+
-        geom_point(aes(x=X1, y= X2, fill= NODFc), shape=21, size=3)+         
-        geom_text_repel(data=pca2, aes(x= X1, y= X2, label= sprintf('Day %s', time)), size=2)+		 
-        viridis::scale_fill_viridis(guide = guide_colourbar(direction = "horizontal"))+
-        scale_color_gradientn(colors=c( rev(brewer.pal(9,'Greys'))[1:2] ) )+
-        theme_text()+
-        theme(text=element_text(family='Arial'),
-              legend.text=element_text(size=6),
-              legend.title=element_text(size=6, vjust=0.8),
-              legend.key.width=unit(0.4,"cm"),
-              legend.key.height=unit(0.2,"cm"),
-              legend.position=c(1, 0),
-              legend.justification = c(1,2),
-              plot.margin= unit(c(1, 1, 9, 1), "lines"))+
-        labs(x='Axis 1',y='Axis 2',fill="Niche overlap score (NODFc)")+
-        coord_fixed()
+    coord_fixed( max(pca2$X1)/max(pca2$X2))
+
+
 
 ggsave(plot=ggpcasim, filename=sprintf('%s/com_assembly_similarity.pdf', dir$figdir),device = cairo_pdf, height=12, width=10, unit='cm')
-ggsave(plot=ggpcanodfc, filename=sprintf('%s/com_assembly_nodfc.pdf', dir$figdir),device = cairo_pdf,height=12, width=10, unit='cm')
-
-svglite::svglite(filename = sprintf('%s/overlap_ts.svgz', dir$figdir), width=7/2.5, height=10/2.5)
-plot(ggpca); dev.off()

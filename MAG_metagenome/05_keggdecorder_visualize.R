@@ -5,13 +5,12 @@
 #### Finding expected early warnings signal by visualizing
 #### 2019.12.09 Fujita
 #### R 3.6.0
-#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_metagenome/')
+#### Set working directory of 'MTS' folder -- setwd('~/Desktop/Microbiome_TimeSeries/MTS_nichespace/')
 #### 
 ############################################################################
 
 ## -- Loading Function and Library
-source('functions/functions.R')
-
+library(AnalysisHelper)
 load.lib( c('ggplot2', 'tidyr', 'cowplot', 'ggh4x', 'car', 'RColorBrewer', 'extrafont', 'ggtext'))
 
 # -- Create directory to save
@@ -109,9 +108,9 @@ ggts <- ggplot(lfbind)+
         scale_shape_manual(values=shape)+
         labs(x='', y='',fill='')
 
-pdf(sprintf('%s/pathway_complete_v2.pdf',dir$figdir), width=13, height=21)
-plot_grid(ggpath,NULL, ggts, ncol=1, rel_heights = c(0.85,-0.01, 0.1), align='v')
-dev.off()
+ggsave(plot=plot_grid(ggpath,NULL, ggts, ncol=1, rel_heights = c(0.85,-0.01, 0.1), align='v'),
+		filename=sprintf('%s/pathway_complete_v2.pdf',dir$figdir),
+		width =13, height =21,device=cairo_pdf, units='in')
 
 svglite::svglite(sprintf('%s/pathway_complete_v.svgz',dir$figdir), width=13, height=21)
 plot(plot_grid(ggpath,NULL, ggts, ncol=1, rel_heights = c(0.85,-0.01, 0.1), align='v'))
@@ -124,7 +123,6 @@ loaddir <- 'Table/ShotgunMetagenome/KO_number_represent'
 
 filetmp <- list.files(loaddir)
 file <- filetmp[grep('KD', filetmp)]
-
 kd <- c()
 for(i in 1:length(file)){
 	
@@ -202,10 +200,11 @@ path.gg <- ggplot(lf.path)+
             scale_y_discrete(expand=c(0,0))+
             scale_x_discrete(expand=c(0,0))+
             labs(x='', y='')
+            
+ggsave(plot= path.gg,
+		filename=sprintf('%s/pathway_dominant.pdf',dir$figdir),
+		width = 10, height = 13,device=cairo_pdf, units='cm')
 
-pdf(sprintf('%s/pathway_dominant.pdf',dir$figdir), width=10/2.5, height=13/2.5)
-plot(path.gg)
-dev.off()
 svglite::svglite(sprintf('%s/pathway_dominant.svgz',dir$figdir), width=8/2.5, height=13/2.5)
 plot(path.gg)
 dev.off()
