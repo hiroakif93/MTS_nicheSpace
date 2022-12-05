@@ -1,0 +1,114 @@
+sample	bin_id	represent	id	Kingdom	Phylum	Class	Order	Family	Genus	Species	completeness	contamination	strain_heterogeneity	genome_size	N50_contig	GC.content	coding_density	predicted_genes
+MTS-001	MTS-001_bin.1	MTS-010_bin.16	MTS-010_bin.016	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Duganella		98.8	0.13	0	5460884	203986	62.6	91.78	4865
+MTS-001	MTS-001_bin.10	MTS-001_bin.10	MTS-001_bin.010	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Novosphingobium		99.09	3.29	13.33	5636625	102237	64.3	90.31	4976
+MTS-001	MTS-001_bin.11	MTS-001_bin.11	MTS-001_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae			99.38	0	0	3951389	232086	62.6	91.44	3661
+MTS-001	MTS-001_bin.12	MTS-010_bin.1	MTS-010_bin.001	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Chromobacteriaceae			99.57	0.43	0	4498967	155077	52.1	85.32	4094
+MTS-001	MTS-001_bin.13	MTS-001_bin.13	MTS-001_bin.013	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Novosphingobium		98.86	0.69	20	4198163	51824	62.4	89.89	3913
+MTS-001	MTS-001_bin.14	MTS-010_bin.8	MTS-010_bin.008	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Lactococcus_A	Lactococcus_A raffinolactis	98.11	1.35	14.29	2361258	126171	39.7	87.97	2320
+MTS-001	MTS-001_bin.15	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5096756	266055	52.4	88.07	4826
+MTS-001	MTS-001_bin.16	MTS-001_bin.16	MTS-001_bin.016	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Duganella	Duganella sp003217375	99.92	1.19	16.67	6479266	214191	62.6	92.81	5830
+MTS-001	MTS-001_bin.17	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		93.35	0	0	2597841	10331	38.6	87.74	2252
+MTS-001	MTS-001_bin.18	MTS-001_bin.18	MTS-001_bin.018	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		84.16	0.74	0	3632523	16590	54.3	89.11	3567
+MTS-001	MTS-001_bin.19	MTS-001_bin.19	MTS-001_bin.019	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Rhodoferax		96.25	1.12	25	3077095	25070	57	93.48	3084
+MTS-001	MTS-001_bin.2	MTS-010_bin.9	MTS-010_bin.009	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Rhodocyclaceae	Uliginosibacterium		99.38	0.96	0	5076041	628918	57	89.43	4716
+MTS-001	MTS-001_bin.20	MTS-001_bin.20	MTS-001_bin.020	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Aeromonadaceae	Aeromonas	Aeromonas hydrophila	98.88	0.29	100	5006854	281653	61.1	87.34	4561
+MTS-001	MTS-001_bin.21	MTS-001_bin.21	MTS-001_bin.021	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Rhodocyclaceae	Uliginosibacterium		87.71	3.73	3.85	4570696	9335	58.4	87.36	4787
+MTS-001	MTS-001_bin.3	MTS-020_bin.6	MTS-020_bin.006	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Aeromonadaceae			100	0	0	3824771	235853	49.1	90.03	3638
+MTS-001	MTS-001_bin.4	MTS-001_bin.4	MTS-001_bin.004	Bacteria	Bacteroidota	Bacteroidia	Sphingobacteriales	Sphingobacteriaceae	Mucilaginibacter	Mucilaginibacter oryzae	97.62	0.4	0	5891481	192853	44.3	87.99	5074
+MTS-001	MTS-001_bin.5	MTS-001_bin.5	MTS-001_bin.005	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Pantoea	Pantoea sp011752625	100	1.55	0	6025599	275507	52.8	88.07	5560
+MTS-001	MTS-001_bin.6	MTS-001_bin.6	MTS-001_bin.006	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		99.82	1.29	0	6377155	296184	56.4	88.72	5610
+MTS-001	MTS-001_bin.7	MTS-001_bin.7	MTS-001_bin.007	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		99.95	0.6	0	5673370	199004	62.1	88.02	5070
+MTS-001	MTS-001_bin.8	MTS-010_bin.15	MTS-010_bin.015	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Allorhizobium		97.74	1.49	37.5	5646106	86600	55.2	88.97	5400
+MTS-001	MTS-001_bin.9	MTS-001_bin.9	MTS-001_bin.009	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Pandoraea		99.55	0.96	20	6402802	69529	63.5	88.08	5703
+MTS-010	MTS-010_bin.1	MTS-010_bin.1	MTS-010_bin.001	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Chromobacteriaceae			99.57	0.85	0	4573844	75658	52.1	85.31	4255
+MTS-010	MTS-010_bin.10	MTS-010_bin.10	MTS-010_bin.010	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Phreatobacteraceae			82.3	0.98	0	3278745	10032	59.7	90.8	3602
+MTS-010	MTS-010_bin.11	MTS-010_bin.11	MTS-010_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Rhizobium		96.14	1.99	23.08	6292370	31076	60.5	87.24	6284
+MTS-010	MTS-010_bin.12	MTS-010_bin.12	MTS-010_bin.012	Bacteria	Proteobacteria	Alphaproteobacteria	Micropepsales	Micropepsaceae	Rhizomicrobium		98.9	0.74	0	3592561	185738	58.6	88.84	3388
+MTS-010	MTS-010_bin.13	MTS-001_bin.11	MTS-001_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae			99.38	0	0	3933477	356380	62.7	91.49	3595
+MTS-010	MTS-010_bin.14	MTS-020_bin.11	MTS-020_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae	Telmatospirillum		99.5	1.99	0	5567692	57060	61.3	89.3	5145
+MTS-010	MTS-010_bin.15	MTS-010_bin.15	MTS-010_bin.015	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Allorhizobium		98.31	0.84	0	5665159	435196	55.1	88.93	5363
+MTS-010	MTS-010_bin.16	MTS-010_bin.16	MTS-010_bin.016	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Duganella		99	0.33	0	5548277	80379	62.5	91.6	4993
+MTS-010	MTS-010_bin.17	MTS-001_bin.7	MTS-001_bin.007	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		98.95	0	0	5385201	50315	62.4	88.22	4889
+MTS-010	MTS-010_bin.18	MTS-001_bin.4	MTS-001_bin.004	Bacteria	Bacteroidota	Bacteroidia	Sphingobacteriales	Sphingobacteriaceae	Mucilaginibacter	Mucilaginibacter oryzae	97.62	0.4	0	5837201	166842	44.3	88	5041
+MTS-010	MTS-010_bin.2	MTS-001_bin.6	MTS-001_bin.006	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		99.82	1.29	0	6268130	224281	56.4	88.72	5521
+MTS-010	MTS-010_bin.3	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.28	20	5078417	293408	52.4	88.23	4808
+MTS-010	MTS-010_bin.4	MTS-020_bin.6	MTS-020_bin.006	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Aeromonadaceae			100	0	0	3673597	103412	49.2	90.45	3485
+MTS-010	MTS-010_bin.5	MTS-010_bin.5	MTS-010_bin.005	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	JABDFW01		88.53	0.25	0	4844654	73249	44	87.52	4047
+MTS-010	MTS-010_bin.6	MTS-001_bin.16	MTS-001_bin.016	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Duganella	Duganella sp003217375	99.12	1.19	16.67	6471116	110472	62.6	92.82	5869
+MTS-010	MTS-010_bin.7	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	3475847	106065	61.3	87.42	2880
+MTS-010	MTS-010_bin.8	MTS-010_bin.8	MTS-010_bin.008	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Lactococcus_A	Lactococcus_A raffinolactis	98.11	1.54	14.29	2372475	125353	39.6	87.86	2327
+MTS-010	MTS-010_bin.9	MTS-010_bin.9	MTS-010_bin.009	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Rhodocyclaceae	Uliginosibacterium		99.38	0.95	0	5092993	343072	57	89.37	4744
+MTS-020	MTS-020_bin.1	MTS-010_bin.15	MTS-010_bin.015	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Allorhizobium		98.31	0.87	28.57	5664798	386360	55.1	88.9	5361
+MTS-020	MTS-020_bin.10	MTS-001_bin.4	MTS-001_bin.004	Bacteria	Bacteroidota	Bacteroidia	Sphingobacteriales	Sphingobacteriaceae	Mucilaginibacter	Mucilaginibacter oryzae	97.62	0.4	0	5888158	193305	44.3	88.02	5067
+MTS-020	MTS-020_bin.11	MTS-020_bin.11	MTS-020_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae	Telmatospirillum		99.5	1.49	0	5604519	75703	61.3	89.37	5178
+MTS-020	MTS-020_bin.12	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		93.97	0	0	3324309	53946	61.5	86.77	2824
+MTS-020	MTS-020_bin.13	MTS-010_bin.12	MTS-010_bin.012	Bacteria	Proteobacteria	Alphaproteobacteria	Micropepsales	Micropepsaceae	Rhizomicrobium		98.9	0.43	0	3567781	205894	58.6	88.81	3338
+MTS-020	MTS-020_bin.14	MTS-010_bin.1	MTS-010_bin.001	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Chromobacteriaceae			99.57	0.43	0	4423810	90519	52.2	85.4	4082
+MTS-020	MTS-020_bin.15	MTS-010_bin.8	MTS-010_bin.008	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Lactococcus_A	Lactococcus_A raffinolactis	89.65	0.6	0	2152194	12333	40.1	88.76	2181
+MTS-020	MTS-020_bin.2	MTS-001_bin.13	MTS-001_bin.013	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Novosphingobium		96.82	0.32	0	4096208	32522	62.3	89.86	3899
+MTS-020	MTS-020_bin.3	MTS-010_bin.11	MTS-010_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Rhizobium		89.33	1.61	16.67	6063052	24142	60.4	87.11	6246
+MTS-020	MTS-020_bin.4	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3105486	227528	38	85.27	2530
+MTS-020	MTS-020_bin.5	MTS-001_bin.7	MTS-001_bin.007	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		94.94	0.65	50	4996990	19449	62.6	88.33	4712
+MTS-020	MTS-020_bin.6	MTS-020_bin.6	MTS-020_bin.006	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Aeromonadaceae			100	0	0	3907279	147332	49.1	90.11	3725
+MTS-020	MTS-020_bin.7	MTS-001_bin.10	MTS-001_bin.010	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Novosphingobium		92.08	3.97	23.53	5192678	15162	64	89.99	4981
+MTS-020	MTS-020_bin.8	MTS-001_bin.11	MTS-001_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae			99.38	0	0	3931471	344966	62.7	91.47	3598
+MTS-020	MTS-020_bin.9	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5089128	337596	52.4	88.18	4816
+MTS-024	MTS-024_bin.1	MTS-010_bin.15	MTS-010_bin.015	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Allorhizobium		97.74	0.84	0	5608059	137970	55.2	89.03	5321
+MTS-024	MTS-024_bin.10	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.03	0	0	3093199	227528	38.1	85.29	2508
+MTS-024	MTS-024_bin.11	MTS-001_bin.11	MTS-001_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae			99.38	0	0	3926042	285060	62.7	91.47	3594
+MTS-024	MTS-024_bin.12	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5089912	340689	52.4	88.19	4819
+MTS-024	MTS-024_bin.2	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		96.55	0.86	0	3710996	48562	60.7	86.9	3116
+MTS-024	MTS-024_bin.3	MTS-010_bin.11	MTS-010_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhizobiales	Rhizobiaceae	Rhizobium		95.45	1.84	5.56	6157712	20028	60.6	87.27	6126
+MTS-024	MTS-024_bin.4	MTS-010_bin.12	MTS-010_bin.012	Bacteria	Proteobacteria	Alphaproteobacteria	Micropepsales	Micropepsaceae	Rhizomicrobium		98.9	0	0	3576712	185738	58.6	88.82	3350
+MTS-024	MTS-024_bin.5	MTS-020_bin.11	MTS-020_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae	Telmatospirillum		99.5	1.56	0	5500454	36929	61.5	89.56	5093
+MTS-024	MTS-024_bin.6	MTS-001_bin.7	MTS-001_bin.007	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Herbaspirillum		97.92	0	0	5258105	67332	62.6	88.24	4688
+MTS-024	MTS-024_bin.7	MTS-020_bin.6	MTS-020_bin.006	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Aeromonadaceae			84.89	0.35	50	2699378	5931	50.2	91.87	2788
+MTS-024	MTS-024_bin.8	MTS-001_bin.13	MTS-001_bin.013	Bacteria	Proteobacteria	Alphaproteobacteria	Sphingomonadales	Sphingomonadaceae	Novosphingobium		95.17	0.62	0	4030691	21980	62.5	90.17	3804
+MTS-024	MTS-024_bin.9	MTS-010_bin.1	MTS-010_bin.001	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Chromobacteriaceae			92.74	0.43	0	4004504	14158	52.5	86.01	3802
+MTS-030	MTS-030_bin.1	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3108004	234964	38	85.12	2522
+MTS-030	MTS-030_bin.2	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5360244	305428	52.3	87.81	5144
+MTS-030	MTS-030_bin.3	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		98.28	0.86	0	3440818	65846	61.3	87.42	2879
+MTS-030	MTS-030_bin.4	MTS-001_bin.11	MTS-001_bin.011	Bacteria	Proteobacteria	Alphaproteobacteria	Rhodospirillales	Magnetospirillaceae			97.47	0	0	3718142	17179	62.5	91.36	3714
+MTS-030	MTS-030_bin.5	MTS-010_bin.12	MTS-010_bin.012	Bacteria	Proteobacteria	Alphaproteobacteria	Micropepsales	Micropepsaceae	Rhizomicrobium		98.9	0.43	0	3575741	85714	58.5	88.74	3372
+MTS-040	MTS-040_bin.1	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		92.53	1.9	25	3336553	22183	61.3	87.83	2869
+MTS-040	MTS-040_bin.2	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3107162	366068	38	85.14	2538
+MTS-040	MTS-040_bin.3	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5404296	266055	52.2	87.61	5182
+MTS-050	MTS-050_bin.1	MTS-010_bin.12	MTS-010_bin.012	Bacteria	Proteobacteria	Alphaproteobacteria	Micropepsales	Micropepsaceae	Rhizomicrobium		89	0.53	16.67	3360769	14094	58.6	89.34	3416
+MTS-050	MTS-050_bin.2	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5360023	326767	52.3	87.8	5148
+MTS-050	MTS-050_bin.3	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3108588	235182	38	85.19	2532
+MTS-050	MTS-050_bin.4	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	3820133	129264	60.8	87.89	3088
+MTS-060	MTS-060_bin.1	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3104980	227741	38	85.32	2524
+MTS-060	MTS-060_bin.2	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		97.41	0.86	0	4157144	101319	60.1	87.38	3415
+MTS-060	MTS-060_bin.3	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5359958	326767	52.3	87.79	5149
+MTS-060	MTS-060_bin.4	MTS-090_bin.4	MTS-090_bin.004	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Paraburkholderia	Paraburkholderia tropica	93.62	2.33	0	7394557	15336	64.8	86.02	7282
+MTS-070	MTS-070_bin.1	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3111417	227224	38	85.1	2521
+MTS-070	MTS-070_bin.2	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5360391	326767	52.3	87.79	5147
+MTS-070	MTS-070_bin.3	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		98.28	0.17	0	3349760	88515	61.3	87.32	2793
+MTS-070	MTS-070_bin.4	MTS-090_bin.4	MTS-090_bin.004	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Paraburkholderia	Paraburkholderia tropica	95.05	2.5	0	7758947	21662	64.8	86.15	7397
+MTS-070	MTS-070_bin.5	MTS-100_bin.2	MTS-100_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	3990137	169383	58.6	88.06	3156
+MTS-080	MTS-080_bin.1	MTS-090_bin.2	MTS-090_bin.002	Bacteria	Proteobacteria	Alphaproteobacteria	Acetobacterales	Acetobacteraceae			84.32	0.5	0	3684558	11320	67.5	87.88	3680
+MTS-080	MTS-080_bin.2	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3102251	226924	38	85.28	2518
+MTS-080	MTS-080_bin.3	MTS-100_bin.2	MTS-100_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	4151567	280815	58.4	87.75	3300
+MTS-080	MTS-080_bin.4	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5359161	337596	52.3	87.79	5144
+MTS-080	MTS-080_bin.5	MTS-090_bin.4	MTS-090_bin.004	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Paraburkholderia	Paraburkholderia tropica	95.69	1.98	33.33	7493562	23206	65	86.4	7038
+MTS-080	MTS-080_bin.6	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		96.55	0.17	0	3152657	111302	61.5	87.97	2608
+MTS-090	MTS-090_bin.1	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3112189	227505	38	85.06	2521
+MTS-090	MTS-090_bin.2	MTS-090_bin.2	MTS-090_bin.002	Bacteria	Proteobacteria	Alphaproteobacteria	Acetobacterales	Acetobacteraceae			99.5	0.5	0	4089046	86554	68.2	88.35	3679
+MTS-090	MTS-090_bin.3	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5385817	339946	52.2	87.72	5165
+MTS-090	MTS-090_bin.4	MTS-090_bin.4	MTS-090_bin.004	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Paraburkholderia	Paraburkholderia tropica	99.6	2.1	0	8236275	320493	65	86.47	7367
+MTS-090	MTS-090_bin.5	MTS-100_bin.2	MTS-100_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	4132457	363737	58.4	87.81	3285
+MTS-090	MTS-090_bin.6	MTS-060_bin.2	MTS-060_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	3617621	102126	61.1	87.78	2924
+MTS-090	MTS-090_bin.7	MTS-090_bin.7	MTS-090_bin.007	Bacteria	Firmicutes_C	Negativicutes	Selenomonadales	Selenomonadaceae			99.91	0.63	0	3554726	126770	41.6	88.47	3344
+MTS-100	MTS-100_bin.1	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3111258	227132	38	85.21	2542
+MTS-100	MTS-100_bin.2	MTS-100_bin.2	MTS-100_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	4174131	280940	58.4	87.74	3312
+MTS-100	MTS-100_bin.3	MTS-090_bin.7	MTS-090_bin.007	Bacteria	Firmicutes_C	Negativicutes	Selenomonadales	Selenomonadaceae			99.91	0.63	0	3543916	105150	41.6	88.51	3337
+MTS-100	MTS-100_bin.4	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5360880	337596	52.3	87.79	5145
+MTS-100	MTS-100_bin.5	MTS-090_bin.2	MTS-090_bin.002	Bacteria	Proteobacteria	Alphaproteobacteria	Acetobacterales	Acetobacteraceae			84.77	1	0	3611719	11144	67.3	87.71	3616
+MTS-100	MTS-100_bin.6	MTS-090_bin.4	MTS-090_bin.004	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Paraburkholderia	Paraburkholderia tropica	92.01	2.59	13.33	7447984	18131	64.8	86.27	7182
+MTS-110	MTS-110_bin.1	MTS-090_bin.2	MTS-090_bin.002	Bacteria	Proteobacteria	Alphaproteobacteria	Acetobacterales	Acetobacteraceae			86	0.5	0	3680588	11857	67.4	87.79	3675
+MTS-110	MTS-110_bin.2	MTS-090_bin.4	MTS-090_bin.004	Bacteria	Proteobacteria	Gammaproteobacteria	Burkholderiales	Burkholderiaceae	Paraburkholderia	Paraburkholderia tropica	89.99	2.51	0	7413453	15786	64.7	85.97	7238
+MTS-110	MTS-110_bin.3	MTS-110_bin.3	MTS-110_bin.003	Bacteria	Firmicutes	Bacilli	Lactobacillales	Streptococcaceae	Lactococcus	Lactococcus lactis	99.62	0.51	0	2257933	235913	34.9	87.27	2228
+MTS-110	MTS-110_bin.4	MTS-100_bin.2	MTS-100_bin.002	Bacteria	Acidobacteriota	Acidobacteriae	Acidobacteriales	Acidobacteriaceae	Terracidiphilus		99.14	0.86	0	4165814	237961	58.4	87.71	3302
+MTS-110	MTS-110_bin.5	MTS-040_bin.3	MTS-040_bin.003	Bacteria	Proteobacteria	Gammaproteobacteria	Enterobacterales	Enterobacteriaceae	Mangrovibacter		99.56	0.27	0	5375930	312456	52.2	87.82	5156
+MTS-110	MTS-110_bin.6	MTS-090_bin.1	MTS-090_bin.001	Bacteria	Bacteroidota	Bacteroidia	Chitinophagales	Chitinophagaceae	Hydrotalea		98.52	0	0	3107330	227741	38	85.25	2524
+MTS-110	MTS-110_bin.7	MTS-090_bin.7	MTS-090_bin.007	Bacteria	Firmicutes_C	Negativicutes	Selenomonadales	Selenomonadaceae			99.91	0.63	0	3492815	105012	41.7	88.49	3286
