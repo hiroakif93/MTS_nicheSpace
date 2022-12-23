@@ -11,7 +11,7 @@
 
 ## -- Loading Function and Library
 library(AnalysisHelper)
-load.lib( c('ggplot2', 'RColorBrewer', 'tidyr', 'vegan', "ggrepel", 'extrafont','bipartite','maxnodf', 'ggtext'))
+load.lib( c('ggplot2', 'RColorBrewer', 'tidyr', 'vegan', "ggrepel", 'extrafont','bipartite','maxnodf', 'ggtext', 'FactoClass', 'scatterplot3d'))
 
 # -- make directory to save results
 dir <- make.dir('MAG_metagenome/Niche_overlap')
@@ -34,8 +34,9 @@ for.parallel(8)
 ############################################################################
 
 shape=c(21:25, 4)
-names(shape) <- c("Gammaproteobacteria", "Alphaproteobacteria", "Bacilli", 
-                  "Bacteroidia", "Acidobacteriae", "Negativicutes"  )
+#names(shape) <- c("Gammaproteobacteria", "Alphaproteobacteria", "Bacilli", 
+#                  "Bacteroidia", "Acidobacteriae", "Negativicutes"  )
+
 
 freq <- colSums(gene.count.mat)/nrow(gene.count.mat)
 bi <- gene.count.mat#[, freq < 0.95]; 
@@ -52,8 +53,9 @@ if(F)
 
 pca <- readRDS('Table/04_06_coord.rds')
 
-
 pcadf <- cbind(repmag, PC= pca[rownames(repmag),])
+shape=c(21:25, 4)
+names(shape) <- sort(unique(pcadf$Class) )
 
 g1 <- ggplot(pcadf)+
       geom_point(aes(x=PC.1, y= PC.2, fill= Genus, shape= Class), size=3,
@@ -179,6 +181,34 @@ plot(g4); dev.off()
 
 
 
+col=cols[(pcadf$Genus)]
+svglite::svglite(sprintf('%s/Niche_spapce.svgz', dir$figdir), width=9/2.5, height=9/2.5)
+s3d<-scatterplot3d::scatterplot3d(x= pca[,1], z=pca[,2], y=pca[,3],
+		  pch="", grid=FALSE, box=FALSE, xlab='PCoA 1', ylab='PCoA 2', zlab='PCoA 3', cex.lab=0.5, cex.axis=0.5)
+addgrids3d(x= pca[,1], z=pca[,2], y=pca[,3], grid = c("xy", "xz", "yz"))
+s3d$points3d(x= pca[,1], z=pca[,2], y=pca[,3],type = "h",
+		  pch=shape[pcadf$Class], bg=col, cex=1.5)       
+dev.off()	
+
+pdf(sprintf('%s/Niche_spapce_day.pdf', dir$figdir), width=18, height=11)
+par(mfrow=c(3,5))
+for(i in rownames(ts)){ #i=rownames(ts)[9]
+	
+	present <- colnames(ts)[which(ts[i,]>0.001)]
+	time=paste('Day', as.numeric(strsplit(i, '-')[[1]][[2]]))
+	
+	pcaday <- pcadf[present, ]
+	
+	
+	s3d<-scatterplot3d::scatterplot3d(x= pcadf[,'PC.1'], z= pcadf[,'PC.2'], y= pcadf[,'PC.3'],
+		  pch="", grid=FALSE, box=FALSE, xlab='PCoA 1', ylab='PCoA 2', zlab='PCoA 3', 
+		  cex.lab=0.5, cex.axis=0.5, 
+		  main= time)
+	addgrids3d(x= pcadf[,'PC.1'], z= pcadf[,'PC.2'], y= pcadf[,'PC.3'], grid = c("xy", "xz", "yz"))
+	s3d$points3d(x= pcaday[,'PC.1'], z= pcaday[,'PC.2'], y= pcaday[,'PC.3'],type = "h",
+		  pch=shape[pcaday $Class], bg=col[pcaday $Genus], cex=1.5)   
+}
+dev.off()
 
 ## ==================================================== ##
 ## -- Niche overlap score
