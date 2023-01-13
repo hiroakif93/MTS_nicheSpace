@@ -17,6 +17,11 @@ load.lib( c('ggplot2', 'RColorBrewer', 'tidyr', 'vegan', "ggrepel", 'extrafont',
 dir <- make.dir('MAG_metagenome/Niche_overlap')
 
 # -- Load data table
+sml <- readRDS('Table/03_04_sample_info_2.rds')
+smltarget <- sml[sml$treat1=='Water/medium A' & 
+				 sml$replicate.id==5 &
+				 sml$time%in%paste('Day_', formatC(c( 1, 10, 20, 24, seq(30, 110, 10)), width=3, flag='0'), sep=''),]
+
 gene.count.mat <- readRDS('Table/04_03_gene_count.matrix_represent.rds')
 mag <- readRDS('Table/ShotgunMetagenome/MAG_infomation.rds') 
 mag[mag ==''] <- 'Unidentified'
@@ -258,7 +263,7 @@ abrupt <- function(x){
 	return(abruptness)
 }
 
-abrupts <- cbind(jaccard=abrupt(jac), 'Community change'=abrupt(bray))
+abrupts <- cbind(jaccard=abrupt(bray), 'Community_change'= smltarget[,'abruptness_rel_tw5_tp1'])
 lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), Similarity=statniche, abrupts, check.names = FALSE)
 
 #nichelap <- do.call(rbind, df)
@@ -283,7 +288,7 @@ g1 <- ggplot(lf, aes(x=time, y=value))+
         theme_text(bsize=6, family = 'Arial')+
         theme(legend.key = element_rect(fill=NA))
 
-g2 <- ggplot(lap_score, aes(y=`Community change`, x= Similarity, color=time))+
+g2 <- ggplot(lap_score, aes(y=`Community_change`, x= Similarity, color=time))+
         geom_point()+
         labs(y='Community change', x='Jaccard similarity')+
       scale_color_gradientn(colors=brewer.pal(11, 'Spectral'))+
@@ -294,6 +299,9 @@ g2 <- ggplot(lap_score, aes(y=`Community change`, x= Similarity, color=time))+
 ggsave(plot=g1, sprintf('%s/score_ts.pdf', dir$figdir),device = cairo_pdf, w=9, h=4, unit='cm')
 ggsave(plot=g2, sprintf('%s/corerelation_with_abruptness.pdf', dir$figdir),device = cairo_pdf, w=14, h=7, unit='cm')
 
+print(cor.test(lap_score$`Community change`, lap_score$Similarity, method='spearman'))
+
+summary(lm(Community_change ~ Similarity, data= lap_score))
 
 # fitting <- function(x){
 #     
