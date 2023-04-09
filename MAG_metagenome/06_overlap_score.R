@@ -249,6 +249,11 @@ fl <- list.files(sprintf('%s', dir$rdsdir), full.names=T)
 df <- (lapply(fl[grep('_MTS-', fl)], readRDS))
 ## ==================================================== ##
 
+richness <- apply(ts, 1, function(x){ sum(x>0) })
+shannon <- diversity(ts, index="shannon")
+
+## ==================================================== ##
+
 tsbi <- ts
 tsbi[tsbi>0] <- 1
 jac <- as.matrix(vegdist(tsbi, method='jaccard', binary=TRUE))
@@ -263,8 +268,13 @@ abrupt <- function(x){
 	return(abruptness)
 }
 
-abrupts <- cbind(jaccard=abrupt(bray), 'Community_change'= smltarget[,'abruptness_rel_tw5_tp1'])
-lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), Similarity=statniche, abrupts, check.names = FALSE)
+abrupts <- cbind(jaccard=abrupt(bray), 
+                 'Community change'= smltarget[,'abruptness_rel_tw5_tp1'])
+lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), 
+                         Similarity=statniche, 
+                         Richness=richness,
+                         Shannon=shannon,
+                         abrupts, check.names = FALSE)
 
 #nichelap <- do.call(rbind, df)
 #colnames(nichelap) <- c('Similarity', 'NODF', 'H2', 'NODFc')
@@ -278,30 +288,45 @@ lap_score <- data.frame( time=c(1,10,20,24,seq(30,110,10)), Similarity=statniche
 
 lap_score_Scale <- lap_score
 lap_score_Scale[,-1] <- apply(lap_score_Scale[,-1], 2, scales::rescale, to=c(0,1))
-lf <- gather(lap_score_Scale, key, value, -c(1,3))
+lf <- gather(lap_score_Scale, key, value, c(2,4,6))
 
 g1 <- ggplot(lf, aes(x=time, y=value))+
-        geom_line(aes(color=key, group=key))+
-        scale_color_manual(values=c(NODFc='slateblue3', Similarity='firebrick3',
+      geom_line(aes(color=key, group=key))+
+      geom_line(aes(color=key, group=key))+
+      scale_color_manual(values=c(Similarity='firebrick3',
+                                    Shannon='slateblue',
                                     'Community change'='black'))+
-        labs(y='Rescaled scores', x='Time', color='Score')+
-        theme_text(bsize=6, family = 'Arial')+
-        theme(legend.key = element_rect(fill=NA))
+      labs(y='Rescaled scores', x='Time', color='Score')+
+      theme_text(bsize=6, family = 'Arial')+
+      theme(legend.key = element_rect(fill=NA))
 
-g2 <- ggplot(lap_score, aes(y=`Community_change`, x= Similarity, color=time))+
-        geom_point()+
-        labs(y='Community change', x='Jaccard similarity')+
+lf <- gather(lap_score_Scale, key, value, c(2,4))
+
+g2 <- ggplot(lf, aes(y=`Community change`, x= value, color=time))+
+      geom_smooth(method="lm")+
+      geom_point()+
+      labs(y='Community change', x='')+
       scale_color_gradientn(colors=brewer.pal(11, 'Spectral'))+
       theme_text(family = 'Arial')+
       theme(legend.key = element_rect(fill=NA),
-            strip.placement = 'outside')
+            strip.placement = 'outside')+
+      facet_wrap(~key, strip.position = "bottom")
 
-ggsave(plot=g1, sprintf('%s/score_ts.pdf', dir$figdir),device = cairo_pdf, w=9, h=4, unit='cm')
-ggsave(plot=g2, sprintf('%s/corerelation_with_abruptness.pdf', dir$figdir),device = cairo_pdf, w=14, h=7, unit='cm')
+ggsave(plot=g1, sprintf('D:/Microbiome_TimeSeries/MTS_nichespace/MAG_metagenome/Niche_overlap/Figure/score_ts.pdf', dir$figdir),device = cairo_pdf, w=9, h=4, unit='cm')
+ggsave(plot=g2, sprintf('D:/Microbiome_TimeSeries/MTS_nichespace/MAG_metagenome/Niche_overlap/Figure/corerelation_with_abruptness.pdf', dir$figdir),device = cairo_pdf, w=14, h=7, unit='cm')
 
 print(cor.test(lap_score$`Community change`, lap_score$Similarity, method='spearman'))
 
-summary(lm(Community_change ~ Similarity, data= lap_score))
+model_overlap <- lm(`Community change` ~ Similarity, data= lap_score)
+model_shannon <- lm(`Community change` ~ Shannon, data= lap_score)
+model_mix <- lm(`Community change` ~ Similarity+Shannon, data= lap_score)
+
+cor(lap_score$Similarity, lap_score$Shannon)
+
+sink("D:/Microbiome_TimeSeries/MTS_nichespace/MAG_metagenome/Niche_overlap/Table/regression_result.txt")
+print(summary(model_overlap)); sprintf("AIC : %s", AIC(model_overlap))
+print(summary(model_shannon)); sprintf("AIC : %s", AIC(model_shannon))
+sink()
 
 # fitting <- function(x){
 #     
